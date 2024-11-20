@@ -1,5 +1,5 @@
 title: My Awesome Website
 description: A description of my website
-theme: jekyll-theme-minima # Replace with your chosen theme
+theme: jekyll-theme-hacker # Replace with your chosen theme
 baseurl: "" # Leave empty for root-level deployment
 url: "https://samyfel.github.io/DS4200-FinalProject/" # Replace with your GitHub Pages URL
