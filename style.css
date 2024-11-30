@@ -51,28 +51,33 @@ header p {
 nav {
     background: var(--space-cadet);
     color: var(--periwinkle);
+    padding: 0.5rem 0; /* Reduce the vertical padding for the nav bar */
 }
 
 nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    padding: 0.5rem 0;
+    margin: 0; /* Ensure no extra margin */
+    padding: 0.25rem 0; /* Reduce the padding inside the list */
 }
 
 nav ul li {
-    margin: 0 1rem;
+    margin: 0 0.5rem; /* Reduce spacing between items */
 }
 
 nav ul li a {
     color: var(--periwinkle);
     text-decoration: none;
+    font-size: 0.9rem; /* Reduce font size if needed */
+    padding: 0.25rem; /* Add some space around links for clickability */
 }
 
 nav ul li a:hover {
     color: var(--naples-yellow);
     text-decoration: underline;
 }
+
 
 /* Main */
 main {
@@ -91,6 +96,30 @@ section h2 {
     margin-bottom: 1rem;
 }
 
+/* Table Styling */
+table {
+    width: auto; /* Adjust table width to fit content */
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: var(--periwinkle);
+    color: var(--space-cadet);
+}
+
+th, td {
+    text-align: left;
+    border: 1px solid var(--space-cadet);
+    padding: 0.5rem; /* Reduce padding for compact cells */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+th {
+    background-color: var(--sunglow);
+}
+
+td {
+    background-color: var(--light-coral);
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -104,3 +133,18 @@ footer {
 #title:hover {
     color: var(--naples-yellow);
 }
+
+/* Add padding or margin to the body or main container */
+body {
+    margin: 0;
+    padding: 0;
+    padding-left: 20px; /* Push content away from the left edge */
+    padding-right: 20px; /* Optional: Adjust for symmetry */
+}
+
+main {
+    margin: 0 auto;
+    padding: 0 20px; /* Adds spacing on both sides */
+    max-width: 4000px; /* Optional: Restrict content width for better readability */
+}
+

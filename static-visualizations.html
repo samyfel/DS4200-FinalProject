@@ -7,201 +7,296 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>About the Project</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="static-visualizations.html">Static Visualizations</a></li>
+            <li><a href="interactive-visualizations.html">Interactive Visualizations</a></li>
+        </ul>
+    </nav>
+    <main>
     <h1>Relevant Feature Analysis</h1>
 
     <div class="content-section">
         <h2>Data Exploration</h2>
-        <p>Summary statistics for exam scores:</p>
+        <p>Firstly, we aggregated summary statistics about the exam score and its distribution:</p>
         <table>
-            <tr>
-                <th>Count</th>
-                <td>6607</td>
-            </tr>
-            <tr>
-                <th>Mean</th>
-                <td>67.24</td>
-            </tr>
-            <tr>
-                <th>Standard Deviation</th>
-                <td>3.89</td>
-            </tr>
-            <tr>
-                <th>Minimum</th>
-                <td>55</td>
-            </tr>
-            <tr>
-                <th>25th Percentile</th>
-                <td>65</td>
-            </tr>
-            <tr>
-                <th>Median</th>
-                <td>67</td>
-            </tr>
-            <tr>
-                <th>75th Percentile</th>
-                <td>69</td>
-            </tr>
-            <tr>
-                <th>Maximum</th>
-                <td>101</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Statistic</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Count</td>
+                    <td>6607</td>
+                </tr>
+                <tr>
+                    <td>Mean</td>
+                    <td>67.24</td>
+                </tr>
+                <tr>
+                    <td>Standard Deviation</td>
+                    <td>3.89</td>
+                </tr>
+                <tr>
+                    <td>Minimum</td>
+                    <td>55</td>
+                </tr>
+                <tr>
+                    <td>25th Percentile</td>
+                    <td>65</td>
+                </tr>
+                <tr>
+                    <td>Median</td>
+                    <td>67</td>
+                </tr>
+                <tr>
+                    <td>75th Percentile</td>
+                    <td>69</td>
+                </tr>
+                <tr>
+                    <td>Maximum</td>
+                    <td>101</td>
+                </tr>
+            </tbody>
         </table>
+        <p>
+            With a mean of 67.24 and a standard deviation of 3.89, we narrowed our scope of data 
+            to visualize to be within 4 standard deviations of the mean in order to increase visibility 
+            in differences around the mean.
+        </p>
     </div>
+    
 
     <div class="content-section">
         <h2>Categorical Features</h2>
-        <p>Significant features based on One-Way ANOVA statistical analysis:</p>
+        
+        <!-- Image slot -->
+        <div class="image-slot">
+            <img src="CatFeatures1.jpeg" alt="Visualization of Categorical Features" style="max-width: 100%; height: auto;">
+        </div>
+        
+        
+        <p>
+            From a visual perspective, most of these distributions seem fairly close together, with parental involvement 
+            and access to resources having the most variation in their distributions. To assess which categorical variables 
+            cause a statistically significant difference in their means, 𝜇, a One-Way ANOVA (Analysis of Variance) test 
+            was performed. This test is used to find if the mean for two or more independent groups differ from each other. 
+            Given the hypothesis:
+        </p>
+        <p>
+            <strong>Ho:</strong> 𝜇1 = 𝜇2 = … = 𝜇k <br>
+            <strong>H1:</strong> At least one 𝜇i ≠ 𝜇j for some i and j, 𝛼 = 0.05
+        </p>
+        <p>
+            Where k is the number of subgroups, the null hypothesis (Ho) will be rejected if p, the probability that the groups' 
+            means do not differ, is less than 0.05, and we can proclaim that at least one group is significantly different from 
+            the rest. The results of this test (Table 1) show that every categorical feature, except for Gender and School Type, 
+            creates a significant effect on student performance (at least for one group).
+        </p>
+    
         <table>
-            <tr>
-                <th>Feature</th>
-                <th>F-Statistic</th>
-                <th>P-Value</th>
-                <th>Significant</th>
-            </tr>
-            <tr>
-                <td>Parental Involvement</td>
-                <td>80.46</td>
-                <td>3.09E-35</td>
-                <td>TRUE</td>
-            </tr>
-            <tr>
-                <td>Access to Resources</td>
-                <td>92.42</td>
-                <td>2.72E-40</td>
-                <td>TRUE</td>
-            </tr>
-            <tr>
-                <td>Extracurricular Activities</td>
-                <td>25.46</td>
-                <td>4.65E-07</td>
-                <td>TRUE</td>
-            </tr>
-            <tr>
-                <td>Motivation Level</td>
-                <td>25.54</td>
-                <td>9.00E-12</td>
-                <td>TRUE</td>
-            </tr>
-            <tr>
-                <td>Internet Access</td>
-                <td>16.71</td>
-                <td>4.41E-05</td>
-                <td>TRUE</td>
-            </tr>
-            <tr>
-                <td>Family Income</td>
-                <td>28.78</td>
-                <td>3.60E-13</td>
-                <td>TRUE</td>
-            </tr>
-            <tr>
-                <td>Teacher Quality</td>
-                <td>18.60</td>
-                <td>8.84E-09</td>
-                <td>TRUE</td>
-            </tr>
-            <tr>
-                <td>School Type</td>
-                <td>0.75</td>
-                <td>3.85E-01</td>
-                <td>FALSE</td>
-            </tr>
-            <tr>
-                <td>Peer Influence</td>
-                <td>32.18</td>
-                <td>1.24E-14</td>
-                <td>TRUE</td>
-            </tr>
-            <tr>
-                <td>Learning Disabilities</td>
-                <td>45.21</td>
-                <td>1.92E-11</td>
-                <td>TRUE</td>
-            </tr>
-            <tr>
-                <td>Parental Education Level</td>
-                <td>35.95</td>
-                <td>2.99E-16</td>
-                <td>TRUE</td>
-            </tr>
-            <tr>
-                <td>Distance from Home</td>
-                <td>24.94</td>
-                <td>1.63E-11</td>
-                <td>TRUE</td>
-            </tr>
-            <tr>
-                <td>Gender</td>
-                <td>0.16</td>
-                <td>6.94E-01</td>
-                <td>FALSE</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>F-Statistic</th>
+                    <th>P-Value</th>
+                    <th>Significant</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Parental Involvement</td>
+                    <td>80.46</td>
+                    <td>3.09E-35</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>Access to Resources</td>
+                    <td>92.42</td>
+                    <td>2.72E-40</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>Extracurricular Activities</td>
+                    <td>25.46</td>
+                    <td>4.65E-07</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>Motivation Level</td>
+                    <td>25.54</td>
+                    <td>9.00E-12</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>Internet Access</td>
+                    <td>16.71</td>
+                    <td>4.41E-05</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>Family Income</td>
+                    <td>28.78</td>
+                    <td>3.60E-13</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>Teacher Quality</td>
+                    <td>18.60</td>
+                    <td>8.84E-09</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>School Type</td>
+                    <td>0.75</td>
+                    <td>3.85E-01</td>
+                    <td>FALSE</td>
+                </tr>
+                <tr>
+                    <td>Peer Influence</td>
+                    <td>32.18</td>
+                    <td>1.24E-14</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>Learning Disabilities</td>
+                    <td>45.21</td>
+                    <td>1.92E-11</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>Parental Education Level</td>
+                    <td>35.95</td>
+                    <td>2.99E-16</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>Distance from Home</td>
+                    <td>24.94</td>
+                    <td>1.63E-11</td>
+                    <td>TRUE</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>0.16</td>
+                    <td>6.94E-01</td>
+                    <td>FALSE</td>
+                </tr>
+            </tbody>
         </table>
+        <p>Table 1: One-way ANOVA statistical analysis test on feature significance</p>
     </div>
+    
 
     <div class="content-section">
         <h2>Continuous Features</h2>
-        <p>Correlation of continuous features with exam scores:</p>
+        
+        <!-- Image slot -->
+        <div class="image-slot">
+            <img src="ConFeatures1.jpeg" alt="Visualization of Continuous Features" style="max-width: 100%; height: auto;">
+        </div>
+        
+        
+        <p>
+            The correlation of the continuous features to performance (exam scores) demonstrates the strength of a relationship. 
+            While only hours studied and attendance seem to correlate significantly (see Figure 2 and Table 2), instead of discarding 
+            features based just on correlation values, a more statistically powerful way to determine relevant features is through 
+            significance testing. To assess which continuous features create significant differences in student performance, the 
+            Pearson-Correlation Coefficient Test can be used. This test is used to find if two variables are correlated significantly, 
+            or if the correlation could be caused by random chance. Given the following two-tailed hypothesis:
+        </p>
+        <p>
+            <strong>Ho:</strong> 𝜌 = 0 <br>
+            <strong>H1:</strong> 𝜌 ≠ 0, 𝛼 = 0.05
+        </p>
+        <p>
+            Where 𝜌 is the correlation coefficient, the null hypothesis (H0) is rejected if the probability that the correlation is due 
+            to random chance is below 0.05. By doing so, we can say that a certain feature creates a statistically significant difference 
+            in student performance. Through this statistical testing, only sleep hours were deemed statistically insignificant.
+        </p>
+    
         <table>
-            <tr>
-                <th>Feature</th>
-                <th>R-Value</th>
-            </tr>
-            <tr>
-                <td>Hours Studied</td>
-                <td>0.445</td>
-            </tr>
-            <tr>
-                <td>Attendance</td>
-                <td>0.581</td>
-            </tr>
-            <tr>
-                <td>Sleep Hours</td>
-                <td>-0.017</td>
-            </tr>
-            <tr>
-                <td>Previous Scores</td>
-                <td>0.175</td>
-            </tr>
-            <tr>
-                <td>Tutoring Sessions</td>
-                <td>0.157</td>
-            </tr>
-            <tr>
-                <td>Physical Activity</td>
-                <td>0.028</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>R-Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Hours Studied</td>
+                    <td>0.445</td>
+                </tr>
+                <tr>
+                    <td>Attendance</td>
+                    <td>0.581</td>
+                </tr>
+                <tr>
+                    <td>Sleep Hours</td>
+                    <td>-0.017</td>
+                </tr>
+                <tr>
+                    <td>Previous Scores</td>
+                    <td>0.175</td>
+                </tr>
+                <tr>
+                    <td>Tutoring Sessions</td>
+                    <td>0.157</td>
+                </tr>
+                <tr>
+                    <td>Physical Activity</td>
+                    <td>0.028</td>
+                </tr>
+            </tbody>
         </table>
+        <p>Table 2: Correlation coefficients of continuous features</p>
     </div>
+    
 
     <div class="content-section">
-        <h2>Multiple Linear Regression</h2>
+        <h2>IV. Multiple Linear Regression</h2>
         <p>
-            A multiple linear regression model was fitted using features after removing outliers. The model achieved:
+            A multiple linear regression model was fitted to the data. All points, where the score is within 4 standard deviations from 
+            the mean were kept. This was done for the following reasons/assumptions:
         </p>
-        <ul>
-            <li>Mean Absolute Error (MAE): 0.31</li>
-            <li>R-squared value: 0.9335</li>
-        </ul>
-        <p>Significant features used in the model included:</p>
-        <ul>
-            <li>Learning Disabilities</li>
-            <li>Parental Involvement</li>
-            <li>Access to Resources</li>
-            <li>Teacher Quality</li>
-            <li>Internet Access</li>
-            <li>Peer Influence</li>
-            <li>Distance from Home</li>
-            <li>Parental Education Level</li>
-            <li>Extracurricular Activities</li>
-            <li>Motivation Level</li>
-            <li>Family Income</li>
-            <li>Tutoring Sessions</li>
-            <li>Hours Studied</li>
-            <li>Physical Activity</li>
-            <li>Previous Scores</li>
-            <li>Attendance</li>
-        </ul>
+        <ol>
+            <li>Large outliers cause poor performance in data fitting</li>
+            <li>By removing large outliers, we can create a model that is more robust to typical scores</li>
+            <li>
+                Outliers, which typically happen to the right, indicate that some students perform better than the expected population. 
+                Other factors that are not considered (such as outside education and IQ), could cause these differences, and are not 
+                reflective of the true population given the features involved.
+            </li>
+        </ol>
+        <p>
+            The features input (after removing irrelevant features) are: <strong>Learning Disabilities</strong>, <strong>Parental Involvement</strong>, 
+            <strong>Access to Resources</strong>, <strong>Teacher Quality</strong>, <strong>Internet Access</strong>, <strong>Peer Influence</strong>, 
+            <strong>Distance from Home</strong>, <strong>Parental Education Level</strong>, <strong>Extracurricular Activities</strong>, 
+            <strong>Motivation Level</strong>, <strong>Family Income</strong>, <strong>Tutoring Sessions</strong>, 
+            <strong>Hours Studied</strong>, <strong>Physical Activity</strong>, <strong>Previous Scores</strong>, and <strong>Attendance</strong>.
+        </p>
+        <p>
+            All categorical features were transformed using one-hot encoding to convert to a numerical feature. This gave a model 
+            with a <strong>MAE</strong> of <strong>0.31</strong> (which indicates the expected absolute error between the predicted 
+            value and expected value) and a <strong>R-squared</strong> value of <strong>0.9335</strong> on the test set, which indicates 
+            a great fit of the model to new data.
+        </p>
+        
+        <!-- Image slot for regression plot -->
+        <div class="image-slot">
+            <img src="LinRegression1.jpeg" alt="Expected vs Predicted Values for Exam Scores" style="max-width: 100%; height: auto;">
+        </div>
+        <p><strong>Figure 3:</strong> Expected vs Multiple Linear Regression Predicted values of <em>Exam_Score</em></p>
     </div>
+    <footer>
+        <p>&copy; 2024 Visualizing Academic Success Project</p>
+    </footer>
 </body>
 </html>
