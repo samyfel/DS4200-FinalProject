@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relevant Feature Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Static Visualizations</h1>
+    </header>
+    <nav>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('static_visualizations') }}">Static Visualizations</a></li>
+        <li><a href="{{ url_for('interactive_visualizations') }}">Interactive Visualizations</a></li>
+        <li><a href="{{ url_for('predict_score') }}">Score Prediction</a></li>
+    </ul>
+	</nav>
+    <main>
+    <h1>Relevant Feature Analysis</h1>
+
+    <div class="docx">
+        <p class="normal0" style="line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">Data anlysis was conducted using visualizations and statisticcal tests to identify the factors that significantly influence student performance.</span>
+			</p>
+			<p class="normal0" style="line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<ol style="margin:0pt; padding-left:0pt; list-style-type:upper-roman">
+				<li class="normal0" style="margin-left:23pt; line-height:115%; padding-left:13pt; font-family:'Times New Roman'; font-size:12pt; font-weight:bold">
+					Data Exploration
+				</li>
+			</ol>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">Initially, we computed summary statistics of the preprocessed dataset (dropped NaN samples) exam scores to understand their distribution (shown in Table 1). </span>
+			</p>
+			<p class="normal0" style="line-height:115%; font-size:12pt">
+				<strong><span style="font-family:'Times New Roman'; ">&#xa0;</span></strong>
+			</p>
+			<table style="width:274.5pt; margin-right:auto; margin-left:auto; border:0.75pt solid #284e3f; border-collapse:collapse">
+				<thead>
+					<tr>
+						<td style="border-right:0.75pt solid #356854; border-bottom:0.75pt solid #284e3f; padding:2pt 5.62pt; background-color:#356854">
+							<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+								<span style="font-family:'Times New Roman'; color:#ffffff">Statistic</span>
+							</p>
+						</td>
+						<td style="border-left:0.75pt solid #356854; border-bottom:0.75pt solid #284e3f; padding:2pt 5.62pt; background-color:#356854">
+							<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+								<span style="font-family:'Times New Roman'; color:#ffffff">Value</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="border-top:0.75pt solid #284e3f; border-right:0.75pt solid #cccccc; border-bottom:0.75pt solid #cccccc; padding:2pt 5.62pt; background-color:#ffffff">
+							<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+								<span style="font-family:'Times New Roman'; color:#434343">Count</span>
+							</p>
+						</td>
+						<td style="border-top:0.75pt solid #284e3f; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #cccccc; padding:2pt 5.62pt; background-color:#ffffff">
+							<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+								<span style="font-family:'Times New Roman'; color:#434343">6607</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #cccccc; border-bottom:0.75pt solid #cccccc; padding:2pt 5.62pt; background-color:#f6f8f9">
+							<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+								<span style="font-family:'Times New Roman'; color:#434343">Mean</span>
+							</p>
+						</td>
+						<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #cccccc; padding:2pt 5.62pt; background-color:#f6f8f9">
+							<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+								<span style="font-family:'Times New Roman'; color:#434343">67.24</span>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #cccccc; padding:2pt 5.62pt; background-color:#ffffff">
+							<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+								<span style="font-family:'Times New Roman'; color:#434343">Standard Deviation</span>
+							</p>
+						</td>
+						<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; padding:2pt 5.62pt; background-color:#ffffff">
+							<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+								<span style="font-family:'Times New Roman'; color:#434343">3.89</span>
+							</p>
+						</td>
+					</tr>
+				</thead>
+			</table>
+			<p class="normal0" style="text-align:center; line-height:115%; font-size:12pt">
+				<span style="width:36pt; font-family:'Courier New'; display:inline-block">&#xa0;</span>
+			</p>
+			<p class="normal0" style="text-align:center; line-height:115%; font-size:10pt">
+				<strong><span style="font-family:'Times New Roman'; ">Table 1: </span></strong><span style="font-family:'Times New Roman'">Summary statistics of Exam Scores</span>
+			</p>
+			<p class="normal0" style="text-align:center; line-height:115%; font-size:10pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">With a mean of 67.24 and a standard deviation of 3.89, we narrowed our scope of data to visualize to be within 3 standard deviations of the mean in order to increase visibility in differences around the mean. </span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<ol start="2" style="margin:0pt; padding-left:0pt; list-style-type:upper-roman">
+				<li class="normal0" style="margin-left:23pt; line-height:115%; padding-left:13pt; font-family:'Times New Roman'; font-size:12pt; font-weight:bold">
+					Categorical Features
+				</li>
+			</ol>
+            
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:12pt">
+				<img src="cat_dist.png" width="416" height="415" alt="" />
+			</p>
+            
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:10pt">
+				<strong><span style="font-family:'Times New Roman'; ">Figure 1: </span></strong><span style="font-family:'Times New Roman'">The distributions of exam scores against categorical features.</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:12pt">
+				<strong><span style="font-family:'Times New Roman'; ">&#xa0;</span></strong>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:12pt">
+				<img src="cont_cat_scatter.png" width="540" height="198" alt="" />
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:10pt">
+				<strong><span style="font-family:'Times New Roman'; ">Figure 2: </span></strong><span style="font-family:'Times New Roman'">A scatterplot of numerical features (Sleep Hours, Tutoring Sessions, and Physical Activity) against exam scores with a low quantity of unique values.</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:10pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">We defined a categorical feature as either: (1) A non-numerical attribute (ex. Low, Medium High) or (2) An integer valued feature with less than 10 unique values. While a non-numerical feature is definitionally categorical, a numeric feature with a low number of unique values can also be treated categorically. This is particularly helpful when the feature is not guaranteed to produce a linear relation to the target variable, or due to the low number of unique values, a relationship would be hard to extrapolate (see Figure 2). For example, a raw increase in the number of sleep hours is not guaranteed to produce a proportional increase in performance due to various factors (such as research that shows there is an “optimal” number of hours of sleep to get). By treating these values as categories, the distributions by subgroup can be plotted which provides a better intuition for the data (see Figure 1).</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">From a visual perspective, most of these distributions seem fairly close together, with parental involvement, access to resources, and number of tutoring sessions having the most variation in their distributions. To assess which categorical variables cause a statistically significant difference in their means, 𝜇, a </span><strong><span style="font-family:'Times New Roman'; ">One-Way ANOVA </span></strong><span style="font-family:'Times New Roman'">(Analysis of Variance) test was performed. This test is used to find if the mean for two or more independent groups differ from each other.</span><span style="font-family:'Times New Roman'">&#xa0; </span><span style="font-family:'Times New Roman'">Given the hypothesis:</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:12pt">
+				<strong><span style="font-family:'Times New Roman'; ">H</span></strong><strong><span style="line-height:115%; font-family:'Times New Roman'; font-size:8pt; "><sub>o</sub></span></strong><strong><span style="font-family:'Times New Roman'; ">:</span></strong><span style="font-family:'Times New Roman'"> 𝜇</span><span style="line-height:115%; font-family:'Times New Roman'; font-size:8pt; "><sub>1</sub></span><span style="font-family:'Times New Roman'"> = 𝜇</span><span style="line-height:115%; font-family:'Times New Roman'; font-size:8pt; "><sub>2</sub></span><span style="font-family:'Times New Roman'"> = … = 𝜇</span><span style="line-height:115%; font-family:'Times New Roman'; font-size:8pt; "><sub>k</sub></span><span style="font-family:'Times New Roman'"> vs </span><strong><span style="font-family:'Times New Roman'; ">H</span></strong><strong><span style="line-height:115%; font-family:'Times New Roman'; font-size:8pt; "><sub>1</sub></span></strong><span style="font-family:'Times New Roman'">: At least one 𝜇</span><span style="line-height:115%; font-family:'Times New Roman'; font-size:8pt; "><sub>i</sub></span><span style="font-family:'Times New Roman'"> ≠ 𝜇</span><span style="line-height:115%; font-family:'Times New Roman'; font-size:8pt; "><sub>j</sub></span><span style="font-family:'Times New Roman'"> for some </span><em><span style="font-family:'Times New Roman'; ">i </span></em><span style="font-family:'Times New Roman'">and </span><em><span style="font-family:'Times New Roman'; ">j</span></em><span style="font-family:'Times New Roman'">, 𝛼=0.05</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">where </span><em><span style="font-family:'Times New Roman'; ">k</span></em><span style="font-family:'Times New Roman'"> is the number of subgroups, the null hypothesis (H</span><span style="line-height:115%; font-family:'Times New Roman'; font-size:8pt; "><sub>o</sub></span><span style="font-family:'Times New Roman'">) will be rejected if </span><em><span style="font-family:'Times New Roman'; ">p,</span></em><span style="font-family:'Times New Roman'">the probability that the groups mean’s do not differ, is less than 0.05, and we can proclaim that at least one group is significantly different from the rest. The results of this test (Table 2) show that every categorical feature, except for Gender, School Type, and Sleep Hours, create a significant effect on student performance (at least for one group).</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:10pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:12pt">
+				<strong><span style="font-family:'Times New Roman'; ">&#xa0;</span></strong>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<table style="width:432.75pt; margin-left:auto; margin-right:auto; border:0.75pt solid #284e3f; border-collapse:collapse">
+				<tr>
+					<td style="border-right:0.75pt solid #356854; border-bottom:0.75pt solid #284e3f; padding:2pt 5.62pt; vertical-align:middle; background-color:#356854">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#ffffff">Categorical Column</span>
+						</p>
+					</td>
+					<td style="border-right:0.75pt solid #356854; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #284e3f; padding:2pt 5.62pt; vertical-align:middle; background-color:#356854">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#ffffff">F-Statistic</span>
+						</p>
+					</td>
+					<td style="border-right:0.75pt solid #356854; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #284e3f; padding:2pt 5.62pt; vertical-align:middle; background-color:#356854">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#ffffff">P-Value</span>
+						</p>
+					</td>
+					<td style="border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #284e3f; padding:2pt 5.62pt; vertical-align:middle; background-color:#356854">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#ffffff">Significant</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Parental_Involvement</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">107.55</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">1.17E-46</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Access_to_Resources</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">117.12</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">1.13E-50</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Extracurricular_Activities</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">26.36</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">2.92E-07</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Motivation_Level</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">34.02</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">2.02E-15</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Internet_Access</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">28.02</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">1.24E-07</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Family_Income</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">32.53</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">8.83E-15</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Teacher_Quality</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">21.78</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">3.76E-10</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">School_Type</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">1.84</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">1.75E-01</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">FALSE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Peer_Influence</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">40.64</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">2.91E-18</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Learning_Disabilities</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">72.00</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">2.65E-17</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr style="height:21.1pt">
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Parental_Education_Level</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">51.31</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">7.87E-23</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Distance_from_Home</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">37.41</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">7.03E-17</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Gender</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">0.06</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">8.01E-01</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">FALSE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Sleep_Hours</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">0.56</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">7.62E-01</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">FALSE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Tutoring_Sessions</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">32.48</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">1.21E-44</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Physical_Activity</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">2.46</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f8f9fa; border-left:0.75pt solid #cccccc; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">2.21E-02</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; padding:2pt 5.62pt; vertical-align:middle; background-color:#f8f9fa">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+			</table>
+			<p class="normal0" style="line-height:115%; font-size:10pt">
+				<strong><span style="font-family:'Times New Roman'; ">&#xa0;</span></strong>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:10pt">
+				<strong><span style="font-family:'Times New Roman'; ">Table 2: </span></strong><span style="font-family:'Times New Roman'">One-way ANOVA statistical analysis test on categorical feature significance</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<ol start="3" style="margin:0pt; padding-left:0pt; list-style-type:upper-roman">
+				<li class="normal0" style="margin-left:23pt; line-height:115%; padding-left:13pt; font-family:'Times New Roman'; font-size:12pt; font-weight:bold">
+					Continuous Features
+				</li>
+			</ol>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:12pt">
+				<img src="cont_scatter.png" width="447" height="164" alt="" />
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:10pt">
+				<strong><span style="font-family:'Times New Roman'; ">Figure 2: </span></strong><span style="font-family:'Times New Roman'">A scatterplot of continuous features plotted against exam scores</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<strong><span style="font-family:'Times New Roman'; ">&#xa0;</span></strong>
+			</p>
+			<p class="normal0" style="line-height:115%; font-size:12pt">
+				<strong><span style="font-family:'Times New Roman'; ">&#xa0;</span></strong>
+			</p>
+			<p class="normal0" style="line-height:115%; font-size:12pt">
+				<strong><span style="font-family:'Times New Roman'; ">&#xa0;</span></strong>
+			</p>
+			<table style="width:432.75pt; margin-left:auto; margin-right:auto; border:0.75pt solid #284e3f; border-collapse:collapse">
+				<tr>
+					<td style="border-right:0.75pt solid #356854; border-bottom:0.75pt solid #284e3f; padding:2pt 5.62pt; vertical-align:middle; background-color:#356854">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#ffffff">Feature</span>
+						</p>
+					</td>
+					<td style="border-right:0.75pt solid #356854; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #284e3f; padding:2pt 5.62pt; vertical-align:middle; background-color:#356854">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#ffffff">R-Value</span>
+						</p>
+					</td>
+					<td style="border-right:0.75pt solid #356854; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #284e3f; padding:2pt 5.62pt; vertical-align:middle; background-color:#356854">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#ffffff">P-Value</span>
+						</p>
+					</td>
+					<td style="border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #284e3f; padding:2pt 5.62pt; vertical-align:middle; background-color:#356854">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#ffffff">Significant</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-bottom:0.75pt solid #f6f8f9; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Hours_Studied</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f6f8f9; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">0.45</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f6f8f9; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">5.56E-308</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f6f8f9; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f6f8f9; border-bottom:0.75pt solid #f6f8f9; padding:2pt 5.62pt; vertical-align:middle; background-color:#f6f8f9">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Attendance</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f6f8f9; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f6f8f9; padding:2pt 5.62pt; vertical-align:middle; background-color:#f6f8f9">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">0.58</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #f6f8f9; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f6f8f9; padding:2pt 5.62pt; vertical-align:middle; background-color:#f6f8f9">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">0.00E+00</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; border-bottom:0.75pt solid #f6f8f9; padding:2pt 5.62pt; vertical-align:middle; background-color:#f6f8f9">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">Previous_Scores</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">0.17</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-right:0.75pt solid #ffffff; border-left:0.75pt solid #cccccc; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:right; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">1.15E-44</span>
+						</p>
+					</td>
+					<td style="border-top:0.75pt solid #cccccc; border-left:0.75pt solid #cccccc; padding:2pt 5.62pt; vertical-align:middle; background-color:#ffffff">
+						<p class="normal0" style="text-align:center; line-height:115%; widows:0; orphans:0; font-size:10pt">
+							<span style="font-family:'Times New Roman'; color:#434343">TRUE</span>
+						</p>
+					</td>
+				</tr>
+			</table>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:10pt">
+				<strong><span style="font-family:'Times New Roman'; ">&#xa0;</span></strong>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:10pt">
+				<strong><span style="font-family:'Times New Roman'; ">Table 3: </span></strong><span style="font-family:'Times New Roman'">Pearson Correlation Coefficient statistical analysis test on continuous feature significance</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<strong><span style="font-family:'Times New Roman'; ">&#xa0;</span></strong>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">The </span><em><span style="font-family:'Times New Roman'; ">correlation</span></em><span style="font-family:'Times New Roman'"> of the continuous features to performance (exam scores) demonstrates the strength of a relationship. While only hours studied and attendance seem to correlate significantly (see Figure 2), instead of discarding features based just on correlation values, a more statistically powerful way to determine relevant features is through significance testing. To assess which continuous features create significant differences in student performance, the </span><strong><span style="font-family:'Times New Roman'; ">Pearson-Correlation Coefficient Test</span></strong><span style="font-family:'Times New Roman'"> can be used. This test is used to find if two variables are correlated significantly, or if the correlation could be caused by random chance. Given the following two-tailed hypothesis:</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:12pt">
+				<span style="width:36pt; font-family:'Times New Roman'; display:inline-block">&#xa0;</span><strong><span style="font-family:'Times New Roman'; ">H</span></strong><strong><span style="line-height:115%; font-family:'Times New Roman'; font-size:8pt; "><sub>o</sub></span></strong><strong><span style="font-family:'Times New Roman'; ">: </span></strong><span style="font-family:'Times New Roman'">𝜌 = 0 vs. </span><strong><span style="font-family:'Times New Roman'; ">H</span></strong><strong><span style="line-height:115%; font-family:'Times New Roman'; font-size:8pt; "><sub>1</sub></span></strong><strong><span style="font-family:'Times New Roman'; ">: </span></strong><span style="font-family:'Times New Roman'">𝜌 ≠ 0, 𝛼=0.05</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; line-height:115%; font-size:12pt">
+				<span style="font-family:'Times New Roman'">where 𝜌 is the correlation coefficient, the null hypothesis (H</span><span style="line-height:115%; font-family:'Times New Roman'; font-size:8pt; "><sub>0</sub></span><span style="font-family:'Times New Roman'">) is rejected if the probability that the correlation is due to random chance is below 0.05. By doing so we can say that a certain feature creates a </span><em><span style="font-family:'Times New Roman'; ">statistically significant </span></em><span style="font-family:'Times New Roman'">difference in student performance. Through this statistical testing, no continuous feature was deemed insignificant (see Table 3). </span>
+			</p>
+			<p class="normal0" style="margin-left:72pt; text-indent:36pt; line-height:115%; font-size:10pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="text-align:center; line-height:115%; font-size:10pt">
+				<img src="std_dist.png" width="337" height="266" alt="" />
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:10pt">
+				<strong><span style="font-family:'Times New Roman'; ">Figure 3: </span></strong><span style="font-family:'Times New Roman'">Distribution of Exam Scores with bounds being shown at 4 standard deviations away from the mean</span>
+			</p>
+			<p class="normal0" style="text-align:center; line-height:115%; font-size:10pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="line-height:115%; font-size:10pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<ol start="4" style="margin:0pt; padding-left:0pt; list-style-type:upper-roman">
+				<li class="normal0" style="margin-left:23pt; padding-left:13pt; font-family:'Times New Roman'; font-weight:bold">
+					Multiple Linear Regression
+				</li>
+			</ol>
+			<p class="normal0" style="margin-left:36pt">
+				<span style="font-family:'Times New Roman'">A multiple linear regression model was fitted to the data where all samples where the score lay within three standard deviations from the mean were kept. This approach was adopted based on the following considerations:</span>
+			</p>
+			<ol style="margin:0pt; padding-left:0pt">
+				<li class="normal0" style="margin-left:68.75pt; padding-left:3.25pt; font-family:'Times New Roman'; font-weight:bold">
+					Mitigating the influence of extreme outliers: <span style="font-weight:normal">large outliers can disproportionately affect the performance of regression models by skewing parameter estimates and undermining model assumptions (e.g. normality and homoscedasticity), thereby undermining the model’s predictive accuracy. Outliers often represent rare, anomalous conditions that do not align with the primary data distribution.</span>
+				</li>
+				<li class="normal0" style="margin-left:68.75pt; padding-left:3.25pt; font-family:'Times New Roman'; font-weight:bold">
+					Enhancing model robustness: <span style="font-weight:normal">By excluding extreme outliers, the model is better aligned with the assumptions of normality, and can better capture the underlying patterns within the majority of the data.</span>
+				</li>
+				<li class="normal0" style="margin-left:68.75pt; padding-left:3.25pt; font-family:'Times New Roman'; font-weight:bold">
+					Contextual interpretation of outliers: <span style="font-weight:normal">Outliers are often observed in the upper tail of the distribution (see Figure 3), and may reflect exceptional performance attributable to external factors not considered such as cognitive abilities (e.g. IQ) or supplementary accelerated education (Kumon). These outliers likely deviate from the expected population behavior based on the features provided.</span>
+				</li>
+			</ol>
+			<p class="normal0">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt">
+				<span style="font-family:'Times New Roman'">The features input (after removing statistically insignificant features) are: </span><em><span style="font-family:'Times New Roman'; ">Learning_Disabilities, Parental_Involvement, Access_to_Resources, Teacher_Quality, Internet_Access, Peer_Influence, Distance_from_Home, Parental_Education_Level, Extracurricular_Activities, Motivation_Level, Family_Income, Tutoring_Sessions, Hours_Studied, Physical_Activity, Previous_Scores, </span></em><span style="font-family:'Times New Roman'">and</span><em><span style="font-family:'Times New Roman'; ">, Attendance. </span></em><span style="font-family:'Times New Roman'">All categorical features were transformed using one-hot encoding to convert to a numerical feature. This gave a model with a MAE of 0.31 (which indicates the expected absolute error between the predicted value and expected value) and a R-squared value of 0.9354 on the test set, which indicates a great fit of the model to new data (see Figure 3).</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center">
+				<img src="lin_reg.png" width="383" height="390" alt="" />
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:10pt">
+				<strong><span style="font-family:'Times New Roman'; ">Figure 3: </span></strong><span style="font-family:'Times New Roman'">Expected vs Multiple Linear Regression Predicted values of </span><em><span style="font-family:'Times New Roman'; ">Exam_Score </span></em><span style="font-family:'Times New Roman'">on the test set</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center; line-height:115%; font-size:10pt">
+				<em><span style="font-family:'Times New Roman'; ">&#xa0;</span></em>
+			</p>
+			<p class="normal0" style="margin-left:36pt; text-align:center">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+			<p class="normal0" style="margin-left:36pt">
+				<span style="font-family:'Times New Roman'">&#xa0;</span>
+			</p>
+    </div>
+    <footer>
+        <p>&copy; 2024 Visualizing Academic Success Project</p>
+    </footer>
+</body>
+</html>

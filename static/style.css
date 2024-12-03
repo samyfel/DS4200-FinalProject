@@ -1,0 +1,187 @@
+/* Define the color palette */
+:root {
+    --periwinkle: #bcb6ff;
+    --space-cadet: #2d3047;
+    --sunglow: #ffd166;
+    --light-coral: #e58c8a;
+    --naples-yellow: #f9dc5c;
+
+    --gradient-top: linear-gradient(0deg, var(--periwinkle), var(--space-cadet), var(--sunglow), var(--light-coral), var(--naples-yellow));
+    --gradient-right: linear-gradient(90deg, var(--periwinkle), var(--space-cadet), var(--sunglow), var(--light-coral), var(--naples-yellow));
+    --gradient-bottom: linear-gradient(180deg, var(--periwinkle), var(--space-cadet), var(--sunglow), var(--light-coral), var(--naples-yellow));
+    --gradient-left: linear-gradient(270deg, var(--periwinkle), var(--space-cadet), var(--sunglow), var(--light-coral), var(--naples-yellow));
+    --gradient-radial: radial-gradient(var(--periwinkle), var(--space-cadet), var(--sunglow), var(--light-coral), var(--naples-yellow));
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: var(--periwinkle);
+    color: var(--space-cadet);
+    margin: 0;
+}
+
+/* Header */
+header {
+    color: var(--space-cadet);
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 4px solid var(--space-cadet);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--space-cadet);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--space-cadet);
+}
+
+/* Navigation */
+nav {
+    background: var(--space-cadet);
+    color: var(--periwinkle);
+    padding: 0.5rem 0; /* Reduce the vertical padding for the nav bar */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0; /* Ensure no extra margin */
+    padding: 0.25rem 0; /* Reduce the padding inside the list */
+}
+
+nav ul li {
+    margin: 0 0.5rem; /* Reduce spacing between items */
+}
+
+nav ul li a {
+    color: var(--periwinkle);
+    text-decoration: none;
+    font-size: 0.9rem; /* Reduce font size if needed */
+    padding: 0.25rem; /* Add some space around links for clickability */
+}
+
+nav ul li a:hover {
+    color: var(--naples-yellow);
+    text-decoration: underline;
+}
+
+
+/* Main */
+main {
+    padding: 2rem 1rem;
+    background-color: var(--light-coral);
+    color: var(--space-cadet);
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    color: var(--space-cadet);
+    margin-bottom: 1rem;
+}
+
+/* Table Styling */
+table {
+    width: auto; /* Adjust table width to fit content */
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: var(--periwinkle);
+    color: var(--space-cadet);
+}
+
+th, td {
+    text-align: left;
+    border: 1px solid var(--space-cadet);
+    padding: 0.5rem; /* Reduce padding for compact cells */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+th {
+    background-color: var(--sunglow);
+}
+
+td {
+    background-color: var(--light-coral);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--space-cadet);
+    color: var(--periwinkle);
+    border-top: 4px solid var(--light-coral);
+}
+
+/* Title Animation */
+#title:hover {
+    color: var(--naples-yellow);
+}
+
+/* Add padding or margin to the body or main container */
+body {
+    margin: 0;
+    padding: 0;
+    padding-left: 20px; /* Push content away from the left edge */
+    padding-right: 20px; /* Optional: Adjust for symmetry */
+}
+
+main {
+    margin: 0 auto;
+    padding: 0 20px; /* Adds spacing on both sides */
+    max-width: 4000px; /* Optional: Restrict content width for better readability */
+}
+
+#docx{
+        body { line-height:115%; font-family:'Architects Daughter'; font-size:13pt }
+        h1, h2, h3, h4, h5, h6, p { margin:0pt }
+        li, table { margin-top:0pt; margin-bottom:0pt }
+        h1 { margin-top:20pt; margin-bottom:6pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Architects Daughter'; font-size:14pt; font-weight:normal; color:#000000 }
+        h2 { margin-top:18pt; margin-bottom:6pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Architects Daughter'; font-size:16pt; font-weight:normal; color:#000000 }
+        h3 { margin-top:16pt; margin-bottom:4pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Architects Daughter'; font-size:14pt; font-weight:normal; color:#434343 }
+        h4 { margin-top:14pt; margin-bottom:4pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Architects Daughter'; font-size:12pt; font-weight:normal; font-style:normal; color:#666666 }
+        h5 { margin-top:12pt; margin-bottom:4pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Architects Daughter'; font-size:11pt; font-weight:normal; color:#666666 }
+        h6 { margin-top:12pt; margin-bottom:4pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Architects Daughter'; font-size:11pt; font-weight:normal; font-style:italic; color:#666666 }
+        .Subtitle { margin-top:0pt; margin-bottom:16pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:Arial; font-size:15pt; font-style:normal; color:#666666 }
+        .Title { margin-bottom:3pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Patrick Hand'; font-size:26pt }
+        .normal0 { line-height:115%; font-size:13pt }
+
+        @media (max-width: 900px) { 
+        img { 
+        max-width: 100%;
+        height: auto;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        }	
+    }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizing Academic Success</title>
+    <!-- Animate.css Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <header>
+        <h1 id="title" class="animate__animated animate__pulse">Visualizing Academic Success</h1>
+    </header>
+    <nav>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('static_visualizations') }}">Static Visualizations</a></li>
+        <li><a href="{{ url_for('interactive_visualizations') }}">Interactive Visualizations</a></li>
+        <li><a href="{{ url_for('predict_score') }}">Score Prediction</a></li>
+    </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Welcome</h2>
+            <p>Welcome to the Data Discovery Project. This project explores key factors contributing to student performance, using data-driven analysis and advanced visualizations. Use the navigation above to learn more about the project, view static visualizations, and interact with data insights.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Visualizing Academic Success Project</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

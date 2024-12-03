@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Visualizations - Data Discovery Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Interactive Visualizations</h1>
+    </header>
+    <nav>
+    <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('static_visualizations') }}">Static Visualizations</a></li>
+        <li><a href="{{ url_for('interactive_visualizations') }}">Interactive Visualizations</a></li>
+        <li><a href="{{ url_for('predict_score') }}">Score Prediction</a></li>
+    </ul>
+    </nav>
+    </nav>
+    <main>
+        <section>
+            <h2>Visualization 1: [Title]</h2>
+            <div class="chart-container" id="interactive-vis1"></div>
+            <p>[Explanation of interaction]</p>
+
+            <h2>Visualization 2: [Title]</h2>
+            <div class="chart-container" id="interactive-vis2"></div>
+            <p>[Explanation of interaction]</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Data Discovery Project</p>
+    </footer>
+</body>
+</html>
