@@ -28,7 +28,7 @@
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    d3.csv("StudentPerformanceFactors1.csv").then(function(data) { 
+    d3.csv("StudentPerformanceFactors.csv").then(function(data) { 
       // Add Title
       svg.append("text")
         .attr("x", width / 2)  // Position it at the center of the chart
