@@ -1,0 +1,125 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+</head>
+
+<body>
+  <!-- Create a div for the chart -->
+  <div id="my_dataviz"></div>
+
+  <script>
+    var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+        width = 460 - margin.left - margin.right,
+        height = 450 - margin.top - margin.bottom;
+
+    var svg = d3.select("#my_dataviz")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    d3.csv("StudentPerformanceFactors1.csv").then(function(data) { 
+      // Add Title
+      svg.append("text")
+        .attr("x", width / 2)  // Position it at the center of the chart
+        .attr("y", -margin.top +30)  // Position it above the chart
+        .style("text-anchor", "middle")
+        .style("font-size", "16px")
+        .style("font-weight", "bold")
+        .text("Number of Tutoring Sessions vs Exam Scores");
+
+
+
+
+
+      // Add X axis
+      var x = d3.scaleLinear()
+        .domain([0, 5])
+        .range([0, height]);
+      svg.append("g")
+        .attr("transform", "translate(0," + height + ")") 
+        .call(d3.axisBottom(x));
+
+      // Add Y axis
+      var y = d3.scaleLinear()
+        .domain([55,80])
+        .range([height, 0]);
+      svg.append("g").call(d3.axisLeft(y));
+
+      // Add X-axis label
+      svg.append("text")
+        .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.bottom -1 ) + ")") 
+        .style("text-anchor", "middle")
+        .text("Tutoring Sessions");
+
+
+      // Add Y-axis label
+      svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left + 20)  
+        .attr("x", 0 - (height / 2))
+        .style("text-anchor", "middle")
+        .text("Exam Score");
+
+      // Tooltip
+      var tooltip = d3.select("#my_dataviz")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("border-width", "1px")
+        .style("border-radius", "5px")
+        .style("padding", "10px");
+
+      // Tooltip functions
+      var mouseover = function(event, d) {
+        tooltip.style("opacity", 1);
+      };
+
+      var mousemove = function(event, d) {
+        tooltip
+          .html("The Value is showing the number of tutoring sessions is " + d.Tutoring_Sessions)
+          .style("left", (event.pageX + 10) + "px")
+          .style("top", (event.pageY + 10) + "px");
+      };
+
+      var mouseleave = function(event, d) {
+        tooltip.style("opacity", 0);
+      };
+
+      // Add dots
+      svg.append("g")
+        .selectAll("circle")
+        .data(data.filter(function(d, i) {
+          return i < 50;
+        }))
+        .enter()
+        .append("circle")
+        .attr("cx", function(d) {
+          return x(+d.Tutoring_Sessions);
+        })
+        .attr("cy", function(d) {
+          return y(+d.Exam_Score);
+        })
+        .attr("r", 7)
+        .style("fill", "#69b3a2")
+        .style("opacity", 0.3)
+        .style("stroke", "white")
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave);
+    });
+  </script>
+</body>
+</html>
