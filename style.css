@@ -43,34 +43,32 @@ header h1 {
     margin-bottom: 0.5rem;
 }
 
-header p {
-    color: var(--space-cadet);
-}
-
 /* Navigation */
 nav {
     background: var(--space-cadet);
     color: var(--periwinkle);
-    padding: 0.5rem 0; /* Reduce the vertical padding for the nav bar */
+    padding: 1rem 0; /* Increased vertical padding */
+    text-align: center;
 }
 
 nav ul {
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
     list-style: none;
-    margin: 0; /* Ensure no extra margin */
-    padding: 0.25rem 0; /* Reduce the padding inside the list */
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
-    margin: 0 0.5rem; /* Reduce spacing between items */
+    margin: 0 1.5rem; /* Increased spacing between menu items */
 }
 
 nav ul li a {
     color: var(--periwinkle);
     text-decoration: none;
-    font-size: 0.9rem; /* Reduce font size if needed */
-    padding: 0.25rem; /* Add some space around links for clickability */
+    font-size: 1.2rem; /* Increased font size */
+    padding: 0.5rem 1rem; /* Added padding for clickable area */
+    font-weight: bold; /* Made text bolder for better visibility */
+    border-radius: 5px; /* Optional: Add a subtle border radius */
 }
 
 nav ul li a:hover {
@@ -78,12 +76,12 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-
 /* Main */
 main {
     padding: 2rem 1rem;
     background-color: var(--light-coral);
     color: var(--space-cadet);
+    text-align: center; /* Center-align all text within main */
 }
 
 section {
@@ -96,29 +94,22 @@ section h2 {
     margin-bottom: 1rem;
 }
 
-/* Table Styling */
-table {
-    width: auto; /* Adjust table width to fit content */
-    border-collapse: collapse;
-    margin-top: 1rem;
-    background-color: var(--periwinkle);
-    color: var(--space-cadet);
+/* Chart Containers */
+.chart-container {
+    margin: 0 auto; /* Center the container itself */
+    text-align: center; /* Center content within the container */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Horizontally center the iframe */
 }
 
-th, td {
-    text-align: left;
-    border: 1px solid var(--space-cadet);
-    padding: 0.5rem; /* Reduce padding for compact cells */
-    white-space: nowrap; /* Prevent text wrapping */
+.chart-container iframe {
+    width: 80%; /* Restrict iframe width to a percentage of its container */
+    max-width: 800px; /* Set a maximum width for the iframe */
+    height: 500px; /* Keep a consistent height */
+    display: block; /* Ensure the iframe is treated as a block element */
+    margin: 0 auto; /* Center the iframe */
 }
 
-th {
-    background-color: var(--sunglow);
-}
-
-td {
-    background-color: var(--light-coral);
-}
 
 /* Footer */
 footer {
@@ -129,61 +120,33 @@ footer {
     border-top: 4px solid var(--light-coral);
 }
 
-/* Title Animation */
-#title:hover {
-    color: var(--naples-yellow);
-}
-
-/* Add padding or margin to the body or main container */
-body {
-    margin: 0;
-    padding: 0;
-    padding-left: 20px; /* Push content away from the left edge */
-    padding-right: 20px; /* Optional: Adjust for symmetry */
-}
-
-main {
-    margin: 0 auto;
-    padding: 0 20px; /* Adds spacing on both sides */
-    max-width: 4000px; /* Optional: Restrict content width for better readability */
-}
-
-#docx{
-        body { line-height:115%; font-family:'Architects Daughter'; font-size:13pt }
-        h1, h2, h3, h4, h5, h6, p { margin:0pt }
-        li, table { margin-top:0pt; margin-bottom:0pt }
-        h1 { margin-top:20pt; margin-bottom:6pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Architects Daughter'; font-size:14pt; font-weight:normal; color:#000000 }
-        h2 { margin-top:18pt; margin-bottom:6pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Architects Daughter'; font-size:16pt; font-weight:normal; color:#000000 }
-        h3 { margin-top:16pt; margin-bottom:4pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Architects Daughter'; font-size:14pt; font-weight:normal; color:#434343 }
-        h4 { margin-top:14pt; margin-bottom:4pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Architects Daughter'; font-size:12pt; font-weight:normal; font-style:normal; color:#666666 }
-        h5 { margin-top:12pt; margin-bottom:4pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Architects Daughter'; font-size:11pt; font-weight:normal; color:#666666 }
-        h6 { margin-top:12pt; margin-bottom:4pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Architects Daughter'; font-size:11pt; font-weight:normal; font-style:italic; color:#666666 }
-        .Subtitle { margin-top:0pt; margin-bottom:16pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:Arial; font-size:15pt; font-style:normal; color:#666666 }
-        .Title { margin-bottom:3pt; page-break-before:auto; page-break-inside:avoid; page-break-after:avoid; line-height:115%; font-family:'Patrick Hand'; font-size:26pt }
-        .normal0 { line-height:115%; font-size:13pt }
-
-        @media (max-width: 900px) { 
-        img { 
-        max-width: 100%;
-        height: auto;
-        }
-
-        .table-container {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        td, th {
-            padding: 8px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-        }	
+/* Responsive Design */
+@media (max-width: 900px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
     }
 
-    
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    iframe {
+        width: 100%; /* Ensure iframes resize properly on smaller screens */
+    }
+}
+
+/* Style for the image in the Significance of Student Success section */
+.image-container img {
+    max-width: 30%; /* Restrict the width to 60% of the container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Center the image inside its container */
+    margin: 0 auto; /* Add automatic margins to center the image */
+    border-radius: 8px; /* Optional: Add rounded corners for a polished look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+}
+
