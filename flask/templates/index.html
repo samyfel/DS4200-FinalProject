@@ -17,8 +17,7 @@
     <ul>
         <li><a href="{{ url_for('home') }}">Home</a></li>
         <li><a href="{{ url_for('about') }}">About</a></li>
-        <li><a href="{{ url_for('static_visualizations') }}">Static Visualizations</a></li>
-        <li><a href="{{ url_for('interactive_visualizations') }}">Interactive Visualizations</a></li>
+        <li><a href="{{ url_for('analysis') }}">Analysis</a></li>
         <li><a href="{{ url_for('predict_score') }}">Score Prediction</a></li>
     </ul>
     </nav>
@@ -35,7 +34,10 @@
             <p>
                 According to the University of Southern California, student success is a measure of student engagement and outcomes. Factors like strong student-teacher relationships, encouragement of growth mindset, and an increase in inclusivity and equity on school campuses. However, these factors are all qualitative, and as a result, cannot be studied with a data-driven approach. Thus, for our project, we wanted to use the Student Performance Factors Dataset to study the factors that contribute to student success in a quantitative manner.
             </p>
-            <img src="{{ url_for('static', filename='images/student_success.png') }}" alt="A visual representation of student success" class="responsive-image">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/student_success.png') }}" alt="A visual representation of student success" class="responsive-image">
+
+            </div>
         </section>
         <section>
             <h2>Conclusion: Insights from Data Analysis</h2>

@@ -111,7 +111,7 @@
             .style("stroke", "#ccc");
     
         // Load data
-        d3.csv("{{ url_for('static', filename='/data/StudentPerformanceFactors.csv') }}").then(function(data) {
+        d3.csv("{{ url_for('static', filename='data/StudentPerformanceFactors.csv') }}").then(function(data) {
             // Parse data values as numbers
             data.forEach(function(d) {
                 d.Tutoring_Sessions = +d.Tutoring_Sessions;

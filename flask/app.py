@@ -16,13 +16,9 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/static-visualizations')
-def static_visualizations():
-    return render_template('static-visualizations.html')
-
-@app.route('/interactive-visualizations')
-def interactive_visualizations():
-    return render_template('interactive-visualizations.html')
+@app.route('/analysis')
+def analysis():
+    return render_template('analysis.html')
 
 @app.route('/intvisualization1')
 def interactive_visualization1():
