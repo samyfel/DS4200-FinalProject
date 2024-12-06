@@ -24,6 +24,14 @@ def static_visualizations():
 def interactive_visualizations():
     return render_template('interactive-visualizations.html')
 
+@app.route('/intvisualization1')
+def interactive_visualization1():
+    return render_template('intvisualization1.html')
+
+@app.route('/highlight-ratings')
+def scatter_p():
+    return render_template('highlight_ratings.html')
+
 @app.route('/predict-score', methods=['GET', 'POST'])
 def predict_score():
     prediction = None

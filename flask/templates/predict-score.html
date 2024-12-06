@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Visualizations - Data Discovery Project</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="script.js" defer></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
     
@@ -23,26 +23,28 @@
     </nav>
     <main>
     <form method="POST" action="/predict-score">
+        <h1>Score Prediction Form</h1>
+        <p>Choose which value you deem fits best. If you do not know the answer to any of the following quesitons, a default value has been provided for you.</p>
         <h2>Parental Education Level</h2>
         <input type="radio" name="Parental_Education_Level" value="College" required> College<br>
-        <input type="radio" name="Parental_Education_Level" value="High School"> High School<br>
+        <input type="radio" name="Parental_Education_Level" value="High School" checked> High School<br>
         <input type="radio" name="Parental_Education_Level" value="Postgraduate"> Postgraduate<br>
 
         <h2>Teacher Quality</h2>
         <input type="radio" name="Teacher_Quality" value="High" required> High<br>
-        <input type="radio" name="Teacher_Quality" value="Medium"> Medium<br>
+        <input type="radio" name="Teacher_Quality" value="Medium" checked> Medium<br>
         <input type="radio" name="Teacher_Quality" value="Low"> Low<br>
 
         <h2>Access to Resources</h2>
         <input type="radio" name="Access_to_Resources" value="High" required> High<br>
-        <input type="radio" name="Access_to_Resources" value="Medium"> Medium<br>
+        <input type="radio" name="Access_to_Resources" value="Medium" checked> Medium<br>
         <input type="radio" name="Access_to_Resources" value="Low"> Low<br>
 
         <h2>Tutoring Sessions (per week)</h2>
         <select name="Tutoring_Sessions" required>
             <option value="0">0</option>
             <option value="1">1</option>
-            <option value="2">2</option>
+            <option value="2" selected>2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
@@ -52,39 +54,39 @@
 
         <h2>Parental Involvement</h2>
         <input type="radio" name="Parental_Involvement" value="High" required> High<br>
-        <input type="radio" name="Parental_Involvement" value="Medium"> Medium<br>
+        <input type="radio" name="Parental_Involvement" value="Medium" checked> Medium<br>
         <input type="radio" name="Parental_Involvement" value="Low"> Low<br>
 
         <h2>Family Income</h2>
         <input type="radio" name="Family_Income" value="High" required> High<br>
-        <input type="radio" name="Family_Income" value="Medium"> Medium<br>
+        <input type="radio" name="Family_Income" value="Medium" checked> Medium<br>
         <input type="radio" name="Family_Income" value="Low"> Low<br>
 
         <h2>Motivation Level</h2>
         <input type="radio" name="Motivation_Level" value="High" required> High<br>
-        <input type="radio" name="Motivation_Level" value="Medium"> Medium<br>
+        <input type="radio" name="Motivation_Level" value="Medium" checked> Medium<br>
         <input type="radio" name="Motivation_Level" value="Low"> Low<br>
 
         <h2>Extracurricular Activities</h2>
-        <input type="radio" name="Extracurricular_Activities" value="Yes" required> Yes<br>
+        <input type="radio" name="Extracurricular_Activities" value="Yes" required checked> Yes<br>
         <input type="radio" name="Extracurricular_Activities" value="No"> No<br>
 
         <h2>Peer Influence</h2>
         <input type="radio" name="Peer_Influence" value="Positive" required> Positive<br>
-        <input type="radio" name="Peer_Influence" value="Neutral"> Neutral<br>
+        <input type="radio" name="Peer_Influence" value="Neutral" checked> Neutral<br>
         <input type="radio" name="Peer_Influence" value="Negative"> Negative<br>
 
         <h2>Internet Access</h2>
-        <input type="radio" name="Internet_Access" value="Yes" required> Yes<br>
+        <input type="radio" name="Internet_Access" value="Yes" required checked> Yes<br>
         <input type="radio" name="Internet_Access" value="No"> No<br>
 
         <h2>Learning Disabilities</h2>
         <input type="radio" name="Learning_Disabilities" value="Yes" required> Yes<br>
-        <input type="radio" name="Learning_Disabilities" value="No"> No<br>
+        <input type="radio" name="Learning_Disabilities" value="No" checked> No<br>
 
         <h2>Distance from Home</h2>
         <input type="radio" name="Distance_from_Home" value="Near" required> Near<br>
-        <input type="radio" name="Distance_from_Home" value="Moderate"> Moderate<br>
+        <input type="radio" name="Distance_from_Home" value="Moderate" checked> Moderate<br>
         <input type="radio" name="Distance_from_Home" value="Far"> Far<br>
 
         <h2>Physical Activity (hours per week)</h2>
@@ -92,20 +94,20 @@
             <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="3" selected>3</option>
             <option value="4">4</option>
             <option value="5">5</option>
             <option value="6">6</option>
         </select>
 
         <h2>Previous Scores (numeric)</h2>
-        <input type="number" step="any" name="Previous_Scores" required><br>
+        <input type="number" step="any" name="Previous_Scores" required value="75"><br>
 
         <h2>Attendance (numeric)</h2>
-        <input type="number" step="any" name="Attendance" required><br>
+        <input type="number" step="any" name="Attendance" required value="80"><br>
 
         <h2>Hours Studied (numeric)</h2>
-        <input type="number" step="any" name="Hours_Studied" required><br>
+        <input type="number" step="any" name="Hours_Studied" required value="20"><br>
 
         <br>
         <input type="submit" value="Predict">
